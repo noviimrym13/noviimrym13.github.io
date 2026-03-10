@@ -23,7 +23,6 @@
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-cursive { font-family: 'Great Vibes', cursive; }
 
-        /* Penyesuaian Ukuran Logo agar Pas */
         .logo-nav {
             height: 45px;
             width: 45px;
@@ -32,18 +31,20 @@
         }
 
         .logo-hero-wrapper {
-            width: 180px;
-            height: 180px;
-            padding: 8px;
+            width: 140px;
+            height: 140px;
+            padding: 4px;
             background: white;
             border: 2px solid var(--italian-gold);
             border-radius: 50%;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            margin: 0 auto;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 20;
         }
 
         .logo-hero {
@@ -54,25 +55,105 @@
         }
 
         .hero-section {
-            background: linear-gradient(rgba(26, 15, 10, 0.85), rgba(60, 42, 33, 0.85)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), 
+                        url('https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410038/1773113318_3a4b4143.png');
             background-size: cover;
-            background-position: center;
-            min-height: 85vh;
+            background-position: center 25%; 
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(2px);
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            max-width: 950px;
+            width: 90%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            margin-top: 50px;
         }
 
         .menu-card {
             background: white;
             border: 1px solid var(--warm-latte);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
         }
 
         .menu-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px);
             border-color: var(--italian-gold);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 25px 50px rgba(26, 15, 10, 0.15);
         }
 
-        /* Animasi Pemuatan */
+        .menu-image-container {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .menu-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .menu-card:hover .menu-image {
+            transform: scale(1.15);
+        }
+
+        .promo-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #E53E3E;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 5;
+        }
+
+        /* Testimonial Styling */
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            border-color: var(--italian-gold);
+            box-shadow: 0 15px 30px rgba(26, 15, 10, 0.05);
+        }
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 40px;
+            color: var(--italian-gold);
+            opacity: 0.15;
+            font-family: serif;
+        }
+
         #loader {
             position: fixed;
             inset: 0;
@@ -87,13 +168,13 @@
 </head>
 <body class="antialiased">
 
-    <!-- Pemuatan (Loader) -->
+    <!-- Loader -->
     <div id="loader">
         <div class="text-center">
-            <div class="logo-hero-wrapper w-24 h-24 mb-4 animate-pulse">
+            <div class="logo-hero-wrapper w-24 h-24 mb-4 animate-pulse border-none">
                 <img src="https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410038/1773107724_2887318f.png" alt="Cozy Heaven Logo" class="logo-hero">
             </div>
-            <p class="font-serif italic text-[#C5A059] tracking-widest uppercase text-[10px]">Menyiapkan Kopi Anda...</p>
+            <p class="font-serif italic text-[#C5A059] tracking-widest uppercase text-[10px]">Menyeduh Kehangatan...</p>
         </div>
     </div>
 
@@ -103,64 +184,124 @@
             <img src="https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410038/1773107724_2887318f.png" alt="Logo Nav" class="logo-nav border border-[#C5A059]/20">
             <div>
                 <h1 class="font-serif text-sm font-bold tracking-tight uppercase">Cozy Heaven</h1>
-                <p class="text-[8px] uppercase tracking-[0.2em] text-[#C5A059] font-bold">Italian Bar</p>
+                <p class="text-[8px] uppercase tracking-[0.2em] text-[#C5A059] font-bold">Premium Italian Bar</p>
             </div>
         </div>
         <div class="hidden lg:flex space-x-8 text-[10px] font-bold uppercase tracking-widest">
             <a href="#home" class="hover:text-[#C5A059] transition">Beranda</a>
-            <a href="#menu" class="hover:text-[#C5A059] transition">Menu</a>
-            <a href="#ai" class="hover:text-[#C5A059] transition">Barista AI</a>
+            <a href="#menu" class="hover:text-[#C5A059] transition">Daftar Menu</a>
+            <a href="#testimonials" class="hover:text-[#C5A059] transition">Testimoni</a>
+            <a href="#ai" class="hover:text-[#C5A059] transition">Asisten AI</a>
         </div>
-        <a href="https://wa.me/6285314299283" target="_blank" class="bg-[#1A0F0A] text-white px-5 py-2 rounded-full text-[9px] font-bold tracking-widest uppercase hover:bg-[#C5A059] transition">Reservasi</a>
+        <a href="https://wa.me/6285314299283" target="_blank" class="bg-[#1A0F0A] text-white px-6 py-2 rounded-full text-[9px] font-bold tracking-widest uppercase hover:bg-[#C5A059] transition shadow-md">Hubungi Kami</a>
     </nav>
 
-    <!-- Bagian Hero -->
-    <section id="home" class="hero-section flex items-center justify-center text-center px-6 pt-20">
-        <div class="max-w-3xl">
-            <!-- Logo Utama -->
-            <div class="logo-hero-wrapper mb-8">
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-center px-4">
+        <div class="hero-content">
+            <div class="logo-hero-wrapper">
                 <img src="https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410038/1773107724_2887318f.png" alt="Cozy Heaven Logo" class="logo-hero">
             </div>
-            
-            <h2 class="font-cursive text-[#C5A059] text-4xl md:text-5xl mb-4">L'Arte del Caffè</h2>
-            <h3 class="font-serif text-white text-3xl md:text-6xl mb-6 uppercase tracking-tighter">Autentikasi Italia di Indramayu</h3>
-            <p class="text-white/80 text-xs md:text-sm mb-10 tracking-[0.3em] uppercase font-light leading-loose">Dikurasi dengan Cinta oleh Novi Maryam</p>
-            
+            <h2 class="font-cursive text-[#C5A059] text-5xl md:text-6xl mb-2 drop-shadow-lg">L'Arte del Caffè</h2>
+            <h3 class="font-serif text-white text-3xl md:text-6xl mb-6 uppercase tracking-tighter drop-shadow-2xl font-bold">Autentikasi Italia</h3>
+            <p class="text-white/95 text-xs md:text-sm mb-10 tracking-[0.3em] uppercase font-light leading-loose drop-shadow-md mx-auto max-w-xl">
+                Menghadirkan Kehangatan Italia di Setiap Cangkir <br> <span class="text-[#C5A059] font-bold">oleh Novi Maryam</span>
+            </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#menu" class="bg-[#C5A059] text-white px-10 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition">Lihat Menu</a>
-                <a href="https://instagram.com/n.nvmr" target="_blank" class="border border-white/30 text-white px-10 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition">Ikuti Kami</a>
+                <a href="#menu" class="bg-[#C5A059] text-white px-10 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition shadow-xl">Lihat Menu Promo</a>
+                <a href="https://instagram.com/n.nvmr" target="_blank" class="backdrop-blur-md bg-white/10 border border-white/30 text-white px-10 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition">Instagram</a>
             </div>
         </div>
     </section>
 
-    <!-- Bagian Menu -->
+    <!-- Menu Section -->
     <section id="menu" class="py-24 px-6 md:px-20 bg-white">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <p class="font-cursive text-[#C5A059] text-3xl mb-2">Pilihan Terbaik</p>
-                <h2 class="font-serif text-4xl uppercase tracking-widest">Il Menù del Bar</h2>
+                <p class="font-cursive text-[#C5A059] text-3xl mb-2">Penawaran Spesial</p>
+                <h2 class="font-serif text-4xl uppercase tracking-widest">Menu Unggulan Kami</h2>
+                <p class="text-[10px] text-gray-400 mt-2 uppercase tracking-[0.3em]">Hanya di Cozy Heaven - Harga Termurah se-Indramayu</p>
                 <div class="w-12 h-[2px] bg-[#C5A059] mx-auto mt-4"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menuGrid">
-                <!-- Konten Menu diisi melalui JavaScript -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="menuGrid">
+                <!-- Data menu dirender via JS -->
             </div>
         </div>
     </section>
 
-    <!-- Barista AI (Gemini Integration) -->
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 px-6 md:px-20 bg-[#F9F3E9]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="font-cursive text-[#C5A059] text-3xl mb-2">Apa Kata Mereka?</p>
+                <h2 class="font-serif text-4xl uppercase tracking-widest text-[#1A0F0A]">Suara Pelanggan</h2>
+                <div class="w-12 h-[2px] bg-[#C5A059] mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <span class="quote-icon">“</span>
+                    <div class="flex mb-4 text-[#C5A059]">
+                        ★★★★★
+                    </div>
+                    <p class="text-sm italic text-gray-600 mb-6 leading-relaxed">"Gak nyangka ada kopi seenak ini dengan harga 10 ribuan. Cappuccino-nya bener-bener creamy, vibes kafenya berasa lagi di Italia!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-[#C5A059]/20 flex items-center justify-center font-bold text-[#C5A059]">A</div>
+                        <div>
+                            <h4 class="font-bold text-xs uppercase">Andini Putri</h4>
+                            <p class="text-[9px] text-gray-400 uppercase tracking-widest">Pelanggan Tetap</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <span class="quote-icon">“</span>
+                    <div class="flex mb-4 text-[#C5A059]">
+                        ★★★★★
+                    </div>
+                    <p class="text-sm italic text-gray-600 mb-6 leading-relaxed">"Affogato-nya juara! Espresso-nya strong tapi pas banget pas ketemu gelato-nya. Barista AI-nya juga sangat membantu milih menu pas lagi bingung."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-[#C5A059]/20 flex items-center justify-center font-bold text-[#C5A059]">R</div>
+                        <div>
+                            <h4 class="font-bold text-xs uppercase">Rizky Ramadhan</h4>
+                            <p class="text-[9px] text-gray-400 uppercase tracking-widest">Penikmat Kopi</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <span class="quote-icon">“</span>
+                    <div class="flex mb-4 text-[#C5A059]">
+                        ★★★★★
+                    </div>
+                    <p class="text-sm italic text-gray-600 mb-6 leading-relaxed">"Satu-satunya tempat di Indramayu yang jual kopi premium tapi harga ramah di kantong pelajar. Novi Maryam bener-bener tau cara bikin kopi yang berkelas!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-[#C5A059]/20 flex items-center justify-center font-bold text-[#C5A059]">S</div>
+                        <div>
+                            <h4 class="font-bold text-xs uppercase">Siti Aisyah</h4>
+                            <p class="text-[9px] text-gray-400 uppercase tracking-widest">Mahasiswi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Barista AI -->
     <section id="ai" class="py-24 px-6 bg-[#1A0F0A] text-white overflow-hidden relative">
         <div class="max-w-3xl mx-auto text-center relative z-10">
             <h3 class="font-serif text-3xl mb-8 uppercase tracking-widest text-[#C5A059]">Konsultasi Barista AI</h3>
-            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 md:p-12 rounded-lg">
-                <p class="text-sm mb-8 opacity-70">Bingung memilih kopi? Ceritakan suasana hati Anda, dan biarkan AI kami merekomendasikan cangkir yang tepat.</p>
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 md:p-12 rounded-2xl">
+                <p class="text-sm mb-8 opacity-70">Bingung pilih kopi yang pas buat dompet dan mood? Barista cerdas kami siap membantu Anda.</p>
                 <div class="space-y-4">
-                    <input type="text" id="userMood" placeholder="Contoh: Sedang butuh semangat di pagi hari..." 
-                           class="w-full bg-white/5 border border-white/10 p-4 rounded-md outline-none focus:border-[#C5A059] text-sm text-center italic">
-                    <button onclick="getRecommendation()" id="aiBtn" class="w-full bg-[#C5A059] text-white py-4 rounded-md text-[11px] font-bold uppercase tracking-widest hover:bg-white hover:text-[#1A0F0A] transition">
-                        Dapatkan Rekomendasi
+                    <input type="text" id="userMood" placeholder="Contoh: Dompet lagi tipis tapi pengen yang segar..." 
+                           class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-[#C5A059] text-sm text-center italic">
+                    <button onclick="getRecommendation()" id="aiBtn" class="w-full bg-[#C5A059] text-white py-4 rounded-xl text-[11px] font-bold uppercase tracking-widest hover:bg-white hover:text-[#1A0F0A] transition shadow-lg">
+                        Tanya Rekomendasi
                     </button>
-                    <div id="aiResponse" class="hidden mt-8 p-6 bg-black/40 rounded-md text-left border-l-4 border-[#C5A059] animate-fade-in">
+                    <div id="aiResponse" class="hidden mt-8 p-6 bg-black/40 rounded-xl text-left border-l-4 border-[#C5A059] animate-fade-in">
                         <h4 class="font-bold text-[#C5A059] mb-2 uppercase text-xs" id="aiTitle"></h4>
                         <p class="text-sm italic opacity-90 leading-relaxed" id="aiText"></p>
                     </div>
@@ -171,7 +312,7 @@
 
     <!-- Footer -->
     <footer class="py-20 bg-[#0A0705] text-center border-t border-white/5">
-        <div class="logo-hero-wrapper w-20 h-20 mb-6 opacity-80 border-none shadow-none p-0">
+        <div class="logo-hero-wrapper w-20 h-20 mb-6 border-none shadow-none p-0 bg-transparent">
             <img src="https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410038/1773107724_2887318f.png" alt="Logo Footer" class="logo-hero">
         </div>
         <h2 class="font-serif text-2xl text-white tracking-[0.3em] uppercase mb-4">Cozy Heaven</h2>
@@ -184,9 +325,8 @@
     </footer>
 
     <script>
-        const apiKey = ""; // Dikelola oleh lingkungan
+        const apiKey = ""; 
 
-        // Loader
         window.onload = () => {
             const loader = document.getElementById('loader');
             loader.style.opacity = '0';
@@ -195,22 +335,73 @@
         };
 
         const barMenu = [
-            { name: "Classico Espresso", price: "25k", desc: "Konsentrat kopi murni dengan crema emas." },
-            { name: "Milanese Cappuccino", price: "35k", desc: "Keseimbangan sempurna espresso dan busa susu." },
-            { name: "Latte Macchiato", price: "38k", desc: "Susu steam yang ditandai dengan espresso premium." },
-            { name: "Affogato al Caffè", price: "40k", desc: "Espresso panas yang disiram di atas gelato vanila." },
-            { name: "Ristretto Bianco", price: "35k", desc: "Shot ristretto ganda dengan susu mikro." },
-            { name: "Caffè Mocha", price: "42k", desc: "Paduan harmonis cokelat hitam dan kopi." }
+            { 
+                name: "Classico Espresso", 
+                price: "10.000", 
+                oldPrice: "25.000",
+                desc: "Intisari kopi Italia yang murni, kuat, dan penuh energi.",
+                img: "https://images.unsplash.com/photo-1510707577719-ff7c181f59fe?auto=format&fit=crop&q=80&w=800"
+            },
+            { 
+                name: "Milanese Cappuccino", 
+                price: "15.000", 
+                oldPrice: "35.000",
+                desc: "Perpaduan klasik espresso dengan foam susu lembut selembut awan.",
+                img: "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80&w=800"
+            },
+            { 
+                name: "Vanilla Latte", 
+                price: "18.000", 
+                oldPrice: "38.000",
+                desc: "Latte manis dengan aroma vanilla yang menenangkan jiwa.",
+                img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=800"
+            },
+            { 
+                name: "Affogato Royale", 
+                price: "20.000", 
+                oldPrice: "45.000",
+                desc: "Dessert mewah: Gelato Italia yang tenggelam dalam shot espresso.",
+                img: "https://images.unsplash.com/photo-1594631252845-29fc4586d5d3?auto=format&fit=crop&q=80&w=800"
+            },
+            { 
+                name: "Iced Caramel Macchiato", 
+                price: "20.000", 
+                oldPrice: "42.000",
+                desc: "Segarnya es kopi dengan gurihnya saus karamel premium.",
+                img: "https://images.unsplash.com/photo-1485808191679-5f6333c37c8a?auto=format&fit=crop&q=80&w=800"
+            },
+            { 
+                name: "Choco Mocha Bliss", 
+                price: "18.000", 
+                oldPrice: "35.000",
+                desc: "Pertemuan sempurna cokelat hitam dan kopi yang menggoda.",
+                img: "https://images.unsplash.com/photo-1544787210-2213d84ad964?auto=format&fit=crop&q=80&w=800"
+            }
         ];
 
         function renderMenu() {
             const grid = document.getElementById('menuGrid');
             grid.innerHTML = barMenu.map(item => `
-                <div class="menu-card p-10 text-center cursor-pointer" onclick="window.open('https://wa.me/6285314299283', '_blank')">
-                    <h3 class="font-serif text-xl mb-3 uppercase tracking-wider">${item.name}</h3>
-                    <div class="w-8 h-[1px] bg-gray-200 mx-auto mb-4"></div>
-                    <p class="text-[11px] italic text-gray-400 mb-6">${item.desc}</p>
-                    <p class="font-serif font-bold text-[#C5A059] text-xl tracking-tighter">${item.price}</p>
+                <div class="menu-card group cursor-pointer" onclick="window.open('https://wa.me/6285314299283', '_blank')">
+                    <div class="menu-image-container">
+                        <div class="promo-badge">Diskon 50%+</div>
+                        <img src="${item.img}" alt="${item.name}" class="menu-image">
+                    </div>
+                    <div class="p-8 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-xl mb-3 uppercase tracking-wider group-hover:text-[#C5A059] transition">${item.name}</h3>
+                            <p class="text-[11px] italic text-gray-400 mb-6 leading-relaxed">${item.desc}</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-center gap-3 mb-6">
+                                <span class="text-[11px] text-gray-300 line-through font-light">Rp ${item.oldPrice}</span>
+                                <p class="font-serif font-bold text-[#C5A059] text-2xl tracking-tighter">Rp ${item.price}</p>
+                            </div>
+                            <button class="w-full text-[10px] font-bold uppercase tracking-widest bg-gray-50 group-hover:bg-[#1A0F0A] group-hover:text-white py-3 rounded-lg transition duration-500 border border-gray-100">
+                                Pesan Lewat WhatsApp
+                            </button>
+                        </div>
+                    </div>
                 </div>
             `).join('');
         }
@@ -223,9 +414,9 @@
             const responseDiv = document.getElementById('aiResponse');
             
             btn.disabled = true;
-            btn.innerText = "Barista sedang meramu...";
+            btn.innerText = "Mencarikan Menu Termurah...";
 
-            const prompt = `Anda adalah barista ahli di Cozy Heaven. Mood pelanggan: "${mood}". Rekomendasikan satu menu kopi dari menu kami (Espresso, Cappuccino, Latte, Affogato, Ristretto, Mocha) dan jelaskan alasannya dengan gaya bicara yang puitis dan hangat dalam Bahasa Indonesia. Format JSON: {"menu": "Nama Menu", "alasan": "Penjelasan"}`;
+            const prompt = `Anda adalah barista di Cozy Heaven. Mood user adalah: "${mood}". Menu kami sangat murah (10rb - 20rb). Berikan saran puitis menggunakan daftar menu kami. Format JSON: {"menu": "Nama Menu", "alasan": "Pesan puitis"}`;
 
             try {
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
@@ -240,14 +431,14 @@
                 const data = await response.json();
                 const content = JSON.parse(data.candidates[0].content.parts[0].text);
 
-                document.getElementById('aiTitle').innerText = `Rekomendasi Spesial: ${content.menu}`;
+                document.getElementById('aiTitle').innerText = `Rekomendasi: ${content.menu}`;
                 document.getElementById('aiText').innerText = content.alasan;
                 responseDiv.classList.remove('hidden');
             } catch (error) {
                 console.error(error);
             } finally {
                 btn.disabled = false;
-                btn.innerText = "Dapatkan Rekomendasi";
+                btn.innerText = "Tanya Rekomendasi";
             }
         }
     </script>
